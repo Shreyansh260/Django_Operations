@@ -1,0 +1,50 @@
+genrate code for a simple html page with basic info of health and fitness.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health and Fitness</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>      
+
+    <h1>Welcome to Health and Fitness</h1>
+    <p>Maintaining good health and fitness is essential for a happy and fulfilling life. It involves a combination of regular exercise, a balanced diet, and proper rest. Engaging in physical activities such as walking, running, or yoga can help improve cardiovascular health, build strength, and enhance flexibility. Eating a variety of nutritious foods, including fruits, vegetables, lean proteins, and whole grains, can provide the necessary nutrients for your body to function optimally. Additionally, getting enough sleep is crucial for recovery and overall well-being. Remember to listen to your body and make choices that promote a healthy lifestyle.</p>
+    <p>peoples joined with us are</p>
+    <table><tr>
+        <th>S.No</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Activity</th>
+        </tr>
+        {% for data in data1 %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{data.name}}</td>
+            <td>{{data.age}}</td>
+            {% if data.age >= 30 %}
+            <td style="background-color: greenyellow;">Yoga</td>
+            {%else%}
+            <td style="background-color: blue;">Gym</td>
+            {%endif%}
+        </tr>
+        {%endfor%}
+    </table>
+
+</body>
+
+</html>
