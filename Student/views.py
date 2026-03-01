@@ -27,3 +27,8 @@ def show(request):
     quries = Student.objects.all()
     context = {'show': quries}
     return render(request,'show.html',context=context)
+
+def delete(request,id):
+      Student.objects.get(id=id).delete()
+      return redirect('show')
+

@@ -26,6 +26,7 @@ urlpatterns = [
     path('',home,name = 'home'),
     path('admin/', admin.site.urls),
     path('data1/',data1,name='data1'),
+    path('delete/<int:id>/',delete,name='delete'),
 ]
 from django.conf import settings
 from django.conf.urls.static import static

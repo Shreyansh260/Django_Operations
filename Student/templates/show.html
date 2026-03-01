@@ -52,6 +52,7 @@ Maintaining good health and fitness is essential for a happy and fulfilling life
         <th>Age</th>
         <th>Image</th>
         <th>Status</th>
+        <th>Action</th>
     </tr>
 
     {% for s in show %}
@@ -60,6 +61,8 @@ Maintaining good health and fitness is essential for a happy and fulfilling life
         <td>{{ s.name }}</td>
         <td>{{ s.student_class }}</td>
         <td>{{ s.age }}</td>
+
+        
 
         <td>
             {% if s.image %}
@@ -76,6 +79,8 @@ Maintaining good health and fitness is essential for a happy and fulfilling life
                 <span style="background-color: lightgreen; padding:5px;">Fail</span>
             {% endif %}
         </td>
+        <td>
+            <a class = "btn btn-danger" href="{% url 'delete' s.id %}">Delete</a>
     </tr>
     {% endfor %}
 
