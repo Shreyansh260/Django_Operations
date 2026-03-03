@@ -59,24 +59,31 @@
 <body>
 
     <div class="form-container">
-        <h2>Student Form</h2>
-        <form action="#" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            
-            <label for="name">Student Name:</label>
-            <input type="text" id="name" name="name" required>
+        <h2>Register</h2>
+        <form>
+            <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label" name = "first_name">Frist Name</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 
-            <label for="class">Class:</label>
-            <input type="text" id="class" name="student_class" required>
+    <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label" name = "last_name">Last Name</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 
-            <label for="age">Age:</label>
-            <input type="number" id="age" name="age" min="1" required>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label"name = "username">User Name</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label" name = "password">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1">
+  </div>
 
-            <label for="photo">Upload Photo:</label>
-            <input type="file" id="photo" name="image" accept="image/*" required>
+<p>Already have a Account.. <a href="/login_page/">Login </a> </p></div>  
 
-            <button type="submit">Submit</button>
-        </form>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
     </div>
     
 

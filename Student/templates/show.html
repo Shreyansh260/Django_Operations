@@ -36,11 +36,18 @@
 
 <body>
 
-<h1>Welcome to Health and Fitness</h1>
+    <form method="GET" action="{%url 'search_student'%}"  class="d-flex">
+    <input 
+        class="form-control mb-2" 
+        name="search" 
+        placeholder="Search student..."
+    >
+    <button class="btn btn-primary" type="submit">
+        Search
+    </button>
+</form>
 
-<p>
-Maintaining good health and fitness is essential for a happy and fulfilling life...
-</p>
+<hr>
 
 <h3>People joined with us are:</h3>
 
@@ -80,7 +87,8 @@ Maintaining good health and fitness is essential for a happy and fulfilling life
             {% endif %}
         </td>
         <td>
-            <a class = "btn btn-danger" href="{% url 'delete' s.id %}">Delete</a>
+            <a class = "btn btn-danger m-2" href="{% url 'delete' s.id %}">Delete</a>
+            <a class = "btn btn-success m-2" href="{% url 'update' s.id %}">Update</a>
     </tr>
     {% endfor %}
 

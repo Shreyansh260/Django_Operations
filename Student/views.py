@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from Student.models import *
+from django.contrib.auth.models import User
 
 def student(request):
    if request.method == 'POST':
@@ -32,3 +33,59 @@ def delete(request,id):
       Student.objects.get(id=id).delete()
       return redirect('show')
 
+def update(request,id):
+    quries = Student.objects.get(id=id)
+
+    if request.method == 'POST':
+        data = request.POST
+        image = request.FILES.get('image')
+        name = data.get('name')  # we can aslo use data.get('name') instead of request.POST.get('name')
+        student_class = data.get('student_class')
+        age = data.get('age')
+
+
+        quries.name = name
+        quries.student_class = student_class
+        quries.age = age
+        if image:
+            quries.image = image
+        quries.save()
+        return redirect('show')
+    
+    
+    context = {'up': quries}
+    return render(request,'update.html',context=context)
+
+def search_student(request):
+    search = request.GET.get('search')
+
+    if search:
+        students = Student.objects.filter(name__icontains=search)
+    else:
+        students = Student.objects.all()
+
+    context = {'show': students}
+    return render(request, 'show.html', context)
+    
+def login_page(request):
+    return render(request,'login.html')
+
+def register(request):
+    if request.method == 'POST':
+        data = request.POST
+        first_name = data.get('first_name')
+        last_name = data.get('last_name')
+        username = data.get('username')
+        password = data.get('password')
+
+        user = User.objects.create(username=username,
+                                        first_name=first_name,
+                                        last_name=last_name)
+        user.set_password(password)
+        user.save()
+        # No need to set password separately when using create_user, it handles password hashing internally.
+
+        return redirect('login_page')
+
+
+    return render(request,'register.html')
