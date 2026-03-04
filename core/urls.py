@@ -31,6 +31,7 @@ urlpatterns = [
     path('delete/<int:id>/',delete,name='delete'),
     path('login_page/',login_page,name='login_page'),
     path('register/',register,name='register'),
+    path('logout_page/',logout_page,name='logout_page'),
 ]
 from django.conf import settings
 from django.conf.urls.static import static
