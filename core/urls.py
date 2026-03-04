@@ -21,12 +21,17 @@ from Student.views import *
 
 urlpatterns = [
     path('show/',show,name='show'),
+    path('search_student/',search_student,name='search_student'),
+    path('update/<int:id>/',update,name='update'),
     path('student/',student,name='student'),
     path('about/',about,name='about'),
     path('',home,name = 'home'),
     path('admin/', admin.site.urls),
     path('data1/',data1,name='data1'),
     path('delete/<int:id>/',delete,name='delete'),
+    path('login_page/',login_page,name='login_page'),
+    path('register/',register,name='register'),
+    path('logout_page/',logout_page,name='logout_page'),
 ]
 from django.conf import settings
 from django.conf.urls.static import static
